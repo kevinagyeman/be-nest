@@ -2,18 +2,18 @@ import { Module } from '@nestjs/common';
 import { MongooseModule } from '@nestjs/mongoose';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { StudentController } from './controller/student/student.controller';
-import { StudentSchema } from './schema/student.schema';
-import { StudentService } from './service/student/student.service';
+import { DishController } from './controller/dish/dish.controller';
+import { DishSchema } from './schema/dish.schema';
+import { DishService } from './service/dish/dish.service';
 
 @Module({
   imports: [
-    MongooseModule.forRoot('mongodb://localhost:27017', {
-      dbName: 'studentdb',
+    MongooseModule.forRoot('mongodb://0.0.0.0:27017', {
+      dbName: 'myfoodrank-db',
     }),
-    MongooseModule.forFeature([{ name: 'Student', schema: StudentSchema }]),
+    MongooseModule.forFeature([{ name: 'Dish', schema: DishSchema }]),
   ],
-  controllers: [AppController, StudentController],
-  providers: [AppService, StudentService],
+  controllers: [AppController, DishController, DishController],
+  providers: [AppService, DishService, DishService],
 })
 export class AppModule {}
