@@ -9,13 +9,14 @@ import {
   Put,
   Res,
 } from '@nestjs/common';
-import { CreateDishDto } from 'src/dto/create-dish.dto';
-import { UpdateDishDto } from 'src/dto/update-dish.dto';
+import { CreateDishDto } from 'src/dto/dish/create-dish.dto';
+import { UpdateDishDto } from 'src/dto/dish/update-dish.dto';
 import { DishService } from 'src/service/dish/dish.service';
 
 @Controller('dish')
 export class DishController {
   constructor(private readonly dishService: DishService) {}
+
   @Post()
   async createDish(@Res() response, @Body() createDishDto: CreateDishDto) {
     try {
@@ -32,6 +33,7 @@ export class DishController {
       });
     }
   }
+
   @Put('/:id')
   async updateDish(
     @Res() response,
@@ -51,6 +53,7 @@ export class DishController {
       return response.status(err.status).json(err.response);
     }
   }
+
   @Get()
   async getDishs(@Res() response) {
     try {
@@ -63,6 +66,7 @@ export class DishController {
       return response.status(err.status).json(err.response);
     }
   }
+
   @Get('/:id')
   async getDish(@Res() response, @Param('id') dishId: string) {
     try {
@@ -75,6 +79,7 @@ export class DishController {
       return response.status(err.status).json(err.response);
     }
   }
+
   @Delete('/:id')
   async deleteDish(@Res() response, @Param('id') dishId: string) {
     try {

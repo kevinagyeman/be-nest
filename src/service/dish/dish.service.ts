@@ -1,9 +1,9 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
-import { CreateDishDto } from 'src/dto/create-dish.dto';
+import { CreateDishDto } from 'src/dto/dish/create-dish.dto';
 import { IDish } from 'src/interface/dish.interface';
 import { Model } from 'mongoose';
-import { UpdateDishDto } from 'src/dto/update-dish.dto';
+import { UpdateDishDto } from 'src/dto/dish/update-dish.dto';
 
 @Injectable()
 export class DishService {

@@ -1,8 +1,10 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
+
 @Schema()
 export class Dish {
   @Prop()
   name: string;
+
   @Prop()
   additionalInfo: string;
 }
