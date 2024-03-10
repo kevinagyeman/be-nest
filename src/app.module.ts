@@ -8,6 +8,9 @@ import { DishService } from './service/dish/dish.service';
 import { RestaurantController } from './controller/restaurant/restaurant.controller';
 import { RestaurantService } from './service/restaurant/restaurant.service';
 import { RestaurantSchema } from './schema/restaurant.schema';
+import { RestaurantScoreService } from './service/restaurant-score/restaurant-score.service';
+import { RestaurantScoreController } from './controller/restaurant-score/restaurant-score.controller';
+import { RestaurantScoreSchema } from './schema/restaurant-score.schema';
 
 @Module({
   imports: [
@@ -17,9 +20,20 @@ import { RestaurantSchema } from './schema/restaurant.schema';
     MongooseModule.forFeature([
       { name: 'Dish', schema: DishSchema },
       { name: 'Restaurant', schema: RestaurantSchema },
+      { name: 'RestaurantScore', schema: RestaurantScoreSchema },
     ]),
   ],
-  controllers: [AppController, DishController, RestaurantController],
-  providers: [AppService, DishService, RestaurantService],
+  controllers: [
+    AppController,
+    DishController,
+    RestaurantController,
+    RestaurantScoreController,
+  ],
+  providers: [
+    AppService,
+    DishService,
+    RestaurantService,
+    RestaurantScoreService,
+  ],
 })
 export class AppModule {}
